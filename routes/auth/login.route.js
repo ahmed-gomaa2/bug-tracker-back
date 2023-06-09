@@ -12,7 +12,7 @@ module.exports = app => {
             const findUserQuery = 'SELECT * FROM user WHERE email = ?';
             connection.query(findUserQuery, email, async (findUserError, findUserRes) => {
                 if(findUserError) {
-                    res.status(500).json({error: {type: 'server', msg: 'SOMETHING WENT WRONG WITH THE SERVER WHILE FINDING THE USER IN THE DB!', err: findUserError}});
+                    res.status(500).json({error: {type: 'server', msg: 'SOMETHING WENT WRONG WITH THE SERVER WHILE FINDING THE USER IN THE DB!', err: findUserError, res: findUserRes}});
                 } else if(findUserRes.length === 0) {
                     res.status(400).json({error: {type: 'email', msg: 'THIS USER DOESN\'T EVEN EXIST PLEASE REGISTER!'}});
                 }else {
