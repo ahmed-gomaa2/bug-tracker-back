@@ -1,11 +1,11 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: 'db4free.net',
-    user: 'ahmedgomaa',
-    port: 3306,
-    database: 'bug_tracker',
-    password: 'CivilWeb1!',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
     logging: true,
     debug: true
 });

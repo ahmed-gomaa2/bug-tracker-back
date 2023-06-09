@@ -1,7 +1,7 @@
 const connection = require('../../config/database');
 const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
-const jwtSecretKey = 'hellofromthisawesomeapplication';
+const jwtSecretKey = process.env.JWT;
 
 module.exports = app => {
     app.post('/login', (req, res) => {
